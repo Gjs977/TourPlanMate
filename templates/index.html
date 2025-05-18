@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TourPlanMate</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+  <header class="header">
+    <p class="header_text">TourPlanMate</p> <!--로고 수정-->
+    <!--로그인 버튼 추가? -->
+  </header>
+
+  <section class="section_1">
+    <div class="section1_div">
+      <div class="section1_texts">
+        <p class="section1_text_1">AI로 완벽한 여행 계획을<br> 만들어보세요!</p>
+        <p class="section1_text_2">가고 싶은 곳과 하고 싶은 활동을 알려주세요. <br>AI가 맞춤형 여행 일정을 만들어 드립니다.</p>
+
+        <div class="section1_btns">
+          <button class="section1_btn_1">시작하기 ➜</button>
+          <button class="section1_btn_2">더 알아보기</button>
+        </div>
+      </div>
+
+      <div class="section1_img1">
+        <img class="section1_img" src="/static/imgs/Venice_img.png" alt="main_img" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section_2">
+    <div class="section2_div_1">
+      <div class="section2_texts">
+        <p class="section2_text_1">AI 여행 계획 생성기</p>
+        <p class="section2_text_2">어디로 여행하고 싶으신가요? 무엇을 하고 싶으신가요? AI가 맞춤형 여행 계획을 만들어 드립니다.</p>
+      </div>
+
+      <div class="applepen"> <!--sec2에서 testbox랑 설명문 묶는 div-->
+        <div class="test_box">
+          <label for="test_box_input" class="test_box_text">어디로 여행하고 싶으신가요?</label>
+          <input type="text" id="test_box_input" name="test_box_input" placeholder="도시, 국가 또는 지역(예: 서울, 일본, 유럽)">
+
+          <label for="test_box_textarea" class="test_box_text">어떤 활동을 하고 싶으신가요?</label>
+          <textarea id="test_box_textarea" rows="5" placeholder="문화 체험, 자연 탐방, 음식 여행, 쇼핑 등"></textarea>
+
+          <div class="test_box_div1">
+            <div class="test_box_duration">
+              <label for="test_box_duration" class="test_box_text">여행 기간</label>
+              <select id="test_box_duration" name="test_box_duration">
+                <option value="1-2일">1-2일</option>
+                <option value="3-5일" selected>3-5일</option>
+                <option value="1주일">1주일</option>
+                <option value="2주일">2주일</option>
+                <option value="1개월 이상">1개월 이상</option>
+              </select>
+            </div>
+            <div class="test_box_div2">
+              <label for="test_box_date" class="test_box_text">출발 날짜</label>
+              <input type="date" id="test_box_date" name="test_box_date" />
+            </div>
+          </div>
+
+          <div class="test_box_div3">
+            <label for="test_box_range" class="test_box_text">예산 범위</label>
+            <input type="range" id="test_box_range">
+            <div class="range_labels">
+              <label for="test_box_range" class="test_box_range_label1">저예산</label>
+              <label for="test_box_range" class="test_box_range_label2">고예산</label>
+            </div>
+          </div>
+
+
+          <label for="test_box_count" class="test_box_text">여행자 수</label>
+          <select id="test_box_count" name="test_box_count">
+            <option value="1명" selected>1명 (나홀로 여행)</option>
+            <option value="2명">2명 (커플/친구)</option>
+            <option value="3-4명">3-4명 (소그룹)</option>
+            <option value="5명이상">5명 이상 (대그룹)</option>
+            <option value="가족여행">가족여행</option>
+          </select>
+          <button class="test_box_btn">여행 계획 생성하기</button>
+        </div>
+
+        <div class="section2_explain_text"> <!--sec2의 설명문 div-->
+          <div class="explain">
+            <img class="explain_img" src="/static/imgs/explain1.png" alt="explain1_img" />
+            <div>
+              <p class="bold_explain">목적지 선택</p>
+              <p class="explain">가고 싶은 도시, 국가 또는 지역을 입력하세요.</p>
+            </div>
+          </div>
+          <div class="explain">
+            <img class="explain_img" src="/static/imgs/explain2.png" alt="explain3_img" />
+            <div>
+              <p class="bold_explain">활동 선택</p>
+              <p class="explain">문화 체험, 모험, 휴식 등 원하는 활동을 알려주세요.</p>
+            </div>
+          </div>
+          <div class="explain">
+            <img class="explain_img" src="/static/imgs/explain2.png" alt="explain3_img" />
+            <div>
+              <p class="bold_explain">맞춤형 일정</p>
+              <p class="explain">AI가 여행 기간, 예산, 선호도에 맞는 완벽한 일정을 만들어 드립니다.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <div class="modal">
+    <div class="modal_body">
+      <div class="modal_header">
+        <h2 class="modal_title">여행 계획 결과</h2>
+      </div>
+      <p class="modal_content">계획을 생성하는 중입니다. 조금만 기다려 주세요...</p>
+      <div class="modal_buttons">
+        <button class="resetBtn">다시 생성</button>
+        <button class="saveBtn">계획 저장</button>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
