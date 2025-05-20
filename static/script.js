@@ -15,16 +15,16 @@ const modal_content = document.querySelector(".modal_content");
 const resetBtn = document.querySelector(".resetBtn");
 const saveBtn = document.querySelector(".saveBtn");
 
-section1_btn_1.addEventListener('click', () => {
-    document.querySelector('.section_2').scrollIntoView({ behavior: 'smooth' });
-});
-
 header_text.addEventListener('click', () => {
     document.querySelector('.section_1').scrollIntoView({ behavior: 'smooth' });
 });
 
+section1_btn_1.addEventListener('click', () => {
+    document.querySelector('.section_2').scrollIntoView({ behavior: 'smooth' });
+});
+
 section1_btn_2.addEventListener('click', () => {
-    alert("업데이트 예정.")
+    alert("업데이트 예정")
 });
 
 

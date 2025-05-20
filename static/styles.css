@@ -95,7 +95,7 @@
 }
 
 .section_2 {
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   height: 1000px;
 }
 
@@ -118,7 +118,7 @@
 .section2_text_1 {
   font-weight: bold;
   font-size: 50px;
-  /* line-height: 1.2; */
+  margin-top: 20px;
 }
 
 .section2_text_2 {
@@ -343,3 +343,4 @@ input[type="range"] {
 .saveBtn:hover {
   background-color: #0d7169;
 }
+
