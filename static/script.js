@@ -15,6 +15,42 @@ const modal_content = document.querySelector(".modal_content");
 const resetBtn = document.querySelector(".resetBtn");
 const saveBtn = document.querySelector(".saveBtn");
 
+// document.addEventListener('contextmenu', (e) => {
+//     e.preventDefault();
+// });
+
+// document.addEventListener('keydown', (e) => {
+//     if (e.key === 'F12') {
+//         e.preventDefault();
+//     }
+//     if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'i') {
+//         e.preventDefault();
+//     }
+//     if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'j') {
+//         e.preventDefault();
+//     }
+//     if (e.ctrlKey && e.key.toLowerCase() === 'u') {
+//         e.preventDefault();
+//     }
+//     if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'c') {
+//         e.preventDefault();
+//     }
+// });
+// window.addEventListener('wheel', (e) => {
+//     if (e.ctrlKey) {
+//         e.preventDefault();
+//     }
+// }, { passive: false });
+// document.addEventListener('keydown', (e) => {
+//     if (e.ctrlKey) {
+//         const blockedKeys = ['+', '-', '=', '_'];
+//         if (blockedKeys.includes(e.key)) {
+//             e.preventDefault();
+//         }
+//     }
+// });
+
+
 header_text.addEventListener('click', () => {
     document.querySelector('.section_1').scrollIntoView({ behavior: 'smooth' });
 });
@@ -26,7 +62,6 @@ section1_btn_1.addEventListener('click', () => {
 section1_btn_2.addEventListener('click', () => {
     alert("업데이트 예정")
 });
-
 
 test_box_btn.addEventListener('click', async () => {
     let a = test_box_input.value;
@@ -63,7 +98,7 @@ test_box_btn.addEventListener('click', async () => {
 너는 여행 계획을 세워주는 인공지능이야.
 참고로 저기서 예산범위가 0에 가까울수록 저비용이고 100에 가까울수록 고비용이야.
 친절하고 구체적으로 최적의 계획을 작성해줘. 답변은 계획만 말해줘
-만약 너가 이해하기 힘든 질문이 들어오면 그냥 "죄송합니다. 이해하지 못했습니다. 다시한번 계획을 생성해 주세요" 라는 문자만 출력해줘
+만약 너가 조금이라도 이해하기 힘든 질문이 들어오면, 만약 입력값이 현실에 없으면, 어떤 활동을 하고 싶은가 가 어떠한 활동이 아니면 그냥 "죄송합니다. 이해하지 못했습니다. 다시한번 계획을 생성해 주세요" 라는 문자만 출력해줘
 `;
 
     try {
@@ -91,9 +126,31 @@ test_box_btn.addEventListener('click', async () => {
     }
 });
 
-resetBtn.addEventListener('click', ()=>{
+resetBtn.addEventListener('click', () => {
     location.reload(true);
 });
-saveBtn.addEventListener('click', ()=>{
-    alert('업데이트 예정')
+
+saveBtn.addEventListener('click', () => {
+    const content = document.querySelector('.modal_content').innerText;
+    
+    if(confirm("저장하시겠습니까?")){
+		if(content == "죄송합니다. 이해하지 못했습니다. 다시한번 계획을 생성해 주세요."){
+            alert("죄송합니다. 계획이 정상적으로 생성되지 않았습니다. 다시 생성해 주세요.")
+        }else{
+            
+ const blob = new Blob([content], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'plan.txt'; 
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+        }
+	}else{
+		alert("저장하지 않았습니다.");
+	}
+    
 });
