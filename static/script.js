@@ -15,40 +15,40 @@ const modal_content = document.querySelector(".modal_content");
 const resetBtn = document.querySelector(".resetBtn");
 const saveBtn = document.querySelector(".saveBtn");
 
-// document.addEventListener('contextmenu', (e) => {
-//     e.preventDefault();
-// });
+document.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
+});
 
-// document.addEventListener('keydown', (e) => {
-//     if (e.key === 'F12') {
-//         e.preventDefault();
-//     }
-//     if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'i') {
-//         e.preventDefault();
-//     }
-//     if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'j') {
-//         e.preventDefault();
-//     }
-//     if (e.ctrlKey && e.key.toLowerCase() === 'u') {
-//         e.preventDefault();
-//     }
-//     if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'c') {
-//         e.preventDefault();
-//     }
-// });
-// window.addEventListener('wheel', (e) => {
-//     if (e.ctrlKey) {
-//         e.preventDefault();
-//     }
-// }, { passive: false });
-// document.addEventListener('keydown', (e) => {
-//     if (e.ctrlKey) {
-//         const blockedKeys = ['+', '-', '=', '_'];
-//         if (blockedKeys.includes(e.key)) {
-//             e.preventDefault();
-//         }
-//     }
-// });
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'F12') {
+        e.preventDefault();
+    }
+    if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'i') {
+        e.preventDefault();
+    }
+    if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'j') {
+        e.preventDefault();
+    }
+    if (e.ctrlKey && e.key.toLowerCase() === 'u') {
+        e.preventDefault();
+    }
+    if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'c') {
+        e.preventDefault();
+    }
+});
+window.addEventListener('wheel', (e) => {
+    if (e.ctrlKey) {
+        e.preventDefault();
+    }
+}, { passive: false });
+document.addEventListener('keydown', (e) => {
+    if (e.ctrlKey) {
+        const blockedKeys = ['+', '-', '=', '_'];
+        if (blockedKeys.includes(e.key)) {
+            e.preventDefault();
+        }
+    }
+});
 
 
 header_text.addEventListener('click', () => {
